@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Recent Predictions</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Text</th>
+                <th>Prediction</th>
+                <th>Confidence</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[0][:100] }}...</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}%</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary">Back</a>
+</div>
+</body>
+</html>
